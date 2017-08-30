@@ -1,0 +1,1 @@
+# wp-redbooth-auth
