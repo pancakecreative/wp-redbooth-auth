@@ -1,0 +1,1625 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.8.1">
+  <partials/>
+  <file path="autoload.php" generated-path="autoload.html" hash="a84ca27a212d3660e99773c51efb7042" package="Default">
+    <docblock line="0">
+      <description>Simple autoloader that follow the PHP Standards Recommendation #0 (PSR-0)</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="see" line="0" description="for more informations.&#10;&#10;Code inspired from the SplClassLoader RFC" link="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md"/>
+      <tag name="see" line="0" description="" link="https://wiki.php.net/rfc/splclassloader#example_implementation"/>
+    </docblock>
+    <source>eJxtUtGK2zAQfPdXLFzBSZpY6WuvpT3SKy2Uq7H7UjgQir1ORCVLlWTuoNy/d+XERIdjMEi7M7OzY3/4ZI82y9hqlcEKaqmtQhBDMMqIFh2EowjQGaXME50Rym8l1EH0rXCthwobozXSLUjTw80WFmVdbbbLKPbZI8IxBOvfM3aQ4TjsC4IzGrjp5IHRu/GTFNsrs2da+ICOiaZBG7Blo1ihW3LgQBuHIHs66nGcL2hKHLQzbWx4Kx0S1Bk9Wq2t2inh/Y/TJtXX3czVk/wjC/JT9BiY6xrmrWoi57T9DT6LGAgfY6E9wziYZFhGSD7lxB0eZHS+6Ia+GaNYvBl1HoTGJfzLgJ5LBT6CCk7qBLSG/PExX96ekJ1UeAbm+bnW091b0aRF2dEgkggPvjSeGj44J63xc+XJxUzLD3tivSJs13BRPXuabXCFl1h5C+9SYrIQkSgvq2j6Ijpbw5fv1f3u18/qN6/vy7vqjo7rxOMSimuQk/rLLDDOCcz5dRJVL9giXaiAPP4JSbARx/GZPizFOZFe5ejw70D/3EXyNkt6YXA9BDfg5DRL6p1QnhovFNJ/DbsXAQ==</source>
+  </file>
+  <file path="Redbooth/Base.php" generated-path="Redbooth.Base.html" hash="a96b112c407b7252b236444a99c467a7" package="Default">
+    <docblock line="0">
+      <description>The Redbooth API low-level HTTP Layer.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="author" line="0" description="Bruno Pedro" link="mailto:bpedro@redbooth.com"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Redbooth" line="14" package="Redbooth">
+      <extends>\Redbooth\OAuth2</extends>
+      <name>Base</name>
+      <full_name>\Redbooth\Base</full_name>
+      <docblock line="14">
+        <description>Redbooth base service</description>
+        <long-description></long-description>
+        <tag name="package" line="14" description="Redbooth"/>
+        <tag name="inherited_from" description="\Redbooth\OAuth2" refers="\Redbooth\OAuth2" link="/classes/Redbooth.OAuth2.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Redbooth" line="20" package="Redbooth">
+        <name>$lastResponse</name>
+        <full_name>\Redbooth\Base::lastResponse</full_name>
+        <default>null</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="20" description="protected"/>
+          <tag name="var" line="20" description="&lt;p&gt;Full content of last HTTP call response.&lt;/p&gt;" type="mixed" variable="">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Redbooth" line="20" package="Redbooth">
+        <name>$baseUrl</name>
+        <full_name>\Redbooth\OAuth2::baseUrl</full_name>
+        <default>'https://redbooth.com'</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="20" description="protected"/>
+          <tag name="var" line="20" description="&lt;p&gt;API base URL.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Redbooth" line="26" package="Redbooth">
+        <name>$apiPath</name>
+        <full_name>\Redbooth\OAuth2::apiPath</full_name>
+        <default>'api/3'</default>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="26" description="protected"/>
+          <tag name="var" line="26" description="&lt;p&gt;path part of the API URL.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="32" package="Redbooth">
+        <name>$clientId</name>
+        <full_name>\Redbooth\OAuth2::clientId</full_name>
+        <default>null</default>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="32" description="private"/>
+          <tag name="var" line="32" description="&lt;p&gt;ID of the API client.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="38" package="Redbooth">
+        <name>$clientSecret</name>
+        <full_name>\Redbooth\OAuth2::clientSecret</full_name>
+        <default>null</default>
+        <docblock line="38">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="38" description="private"/>
+          <tag name="var" line="38" description="&lt;p&gt;secret of the API client.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="44" package="Redbooth">
+        <name>$accessToken</name>
+        <full_name>\Redbooth\OAuth2::accessToken</full_name>
+        <default>null</default>
+        <docblock line="44">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="44" description="private"/>
+          <tag name="var" line="44" description="&lt;p&gt;OAuth2 access token.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="50" package="Redbooth">
+        <name>$refreshToken</name>
+        <full_name>\Redbooth\OAuth2::refreshToken</full_name>
+        <default>null</default>
+        <docblock line="50">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="50" description="private"/>
+          <tag name="var" line="50" description="&lt;p&gt;OAuth2 refresh token.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="56" package="Redbooth">
+        <name>$redirectUrl</name>
+        <full_name>\Redbooth\OAuth2::redirectUrl</full_name>
+        <default>null</default>
+        <docblock line="56">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="56" description="private"/>
+          <tag name="var" line="56" description="&lt;p&gt;OAuth2 redirect URL.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="Redbooth" line="31" package="Redbooth">
+        <name>buildEndpointUrl</name>
+        <full_name>\Redbooth\Base::buildEndpointUrl()</full_name>
+        <docblock line="31">
+          <description>Build a complete endpoint URL.</description>
+          <long-description>Build an endpoint URL by concatenating the base
+URL, the API path and the given method.</long-description>
+          <tag name="param" line="31" description="&lt;p&gt;The method that you want to call.&lt;/p&gt;" type="string" variable="$method">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="31" description="A complete endpoint URL." type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$method</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="46" package="Redbooth">
+        <name>get</name>
+        <full_name>\Redbooth\Base::get()</full_name>
+        <docblock line="46">
+          <description>Perform a GET request.</description>
+          <long-description>Perform a GET request to a given API method.</long-description>
+          <tag name="param" line="46" description="&lt;p&gt;The method that you want to call.&lt;/p&gt;" type="string" variable="$method">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="46" description="An object representation of the response." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$method</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="70" package="Redbooth">
+        <name>post</name>
+        <full_name>\Redbooth\Base::post()</full_name>
+        <docblock line="70">
+          <description>Perform a POST request.</description>
+          <long-description>Perform a POST request to a given API method.</long-description>
+          <tag name="param" line="70" description="&lt;p&gt;The method that you want to call.&lt;/p&gt;" type="string" variable="$method">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="70" description="&lt;p&gt;Data to be POSTed.&lt;/p&gt;" type="array" variable="$data">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="70" description="An object representation of the response." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$method</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="94" package="Redbooth">
+        <name>postFile</name>
+        <full_name>\Redbooth\Base::postFile()</full_name>
+        <docblock line="94">
+          <description>Upload a file.</description>
+          <long-description>A variation of the post() method that handles a file
+upload by setting the appropriate MIME type.</long-description>
+          <tag name="param" line="94" description="&lt;p&gt;The method that you want to call.&lt;/p&gt;" type="string" variable="$method">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="94" description="&lt;p&gt;Data to be POSTed.&lt;/p&gt;" type="array" variable="$data">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="94" description="&lt;p&gt;The complete path of the file you want to upload.&lt;/p&gt;" type="string" variable="$filePath">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="94" description="&lt;p&gt;The name of the file you're uploading. Defaults to 'asset'.&lt;/p&gt;" type="string" variable="$fileName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="94" description="An object representation of the response." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$method</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$filePath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$fileName</name>
+          <default>'asset'</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="120" package="Redbooth">
+        <name>getLastHeaders</name>
+        <full_name>\Redbooth\Base::getLastHeaders()</full_name>
+        <docblock line="120">
+          <description>Get headers from last HTTP call response.</description>
+          <long-description>Read the previously saved last HTTP call response
+and return any saved headers.</long-description>
+          <tag name="return" line="120" description="An array of HTTP headers (might be empty)." type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="71" package="Redbooth">
+        <name>__construct</name>
+        <full_name>\Redbooth\OAuth2::__construct()</full_name>
+        <docblock line="71">
+          <description>The class constructor.</description>
+          <long-description>The constructor receives information needed to
+interact with the OAuth2 API and sets local class
+attributes.</long-description>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API client ID.&lt;/p&gt;" type="string" variable="$clientId">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API Client secret.&lt;/p&gt;" type="string" variable="$clientSecret">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API access token.&lt;/p&gt;" type="string" variable="$accessToken">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API refresh token.&lt;/p&gt;" type="string" variable="$refreshToken">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API redirect URL.&lt;/p&gt;" type="string" variable="$redirectUrl">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$clientId</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$clientSecret</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$accessToken</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$refreshToken</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$redirectUrl</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Redbooth\OAuth2</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Redbooth" line="89" package="Redbooth">
+        <name>addAuthorizationHeader</name>
+        <full_name>\Redbooth\OAuth2::addAuthorizationHeader()</full_name>
+        <docblock line="89">
+          <description>Add an OAuth2 authorization header.</description>
+          <long-description>Changes the headers array by adding an OAuth2
+Bearer Authorization header.</long-description>
+          <tag name="param" line="89" description="&lt;p&gt;The original headers array. If empty a new array will be created.&lt;/p&gt;" type="array" variable="$headers">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="89" description="A headers array including the authorization header." type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$headers</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <inherited_from>\Redbooth\OAuth2</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Redbooth" line="101" package="Redbooth">
+        <name>throwIfTokenInvalid</name>
+        <full_name>\Redbooth\OAuth2::throwIfTokenInvalid()</full_name>
+        <docblock line="101">
+          <description>Throw an exception if a refresh token is invalid.</description>
+          <long-description></long-description>
+          <tag name="param" line="101" description="&lt;p&gt;An object representation of a response.&lt;/p&gt;" type="object" variable="$res">
+            <type>object</type>
+          </tag>
+          <tag name="throws" line="101" description="" type="\Redbooth\Exception\InvalidTokenException">
+            <type>\Redbooth\Exception\InvalidTokenException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$res</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+        <inherited_from>\Redbooth\OAuth2</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="130" package="Redbooth">
+        <name>refreshToken</name>
+        <full_name>\Redbooth\OAuth2::refreshToken()</full_name>
+        <docblock line="130">
+          <description>Refresh the OAuth2 access and refresh tokens.</description>
+          <long-description>Make a request to the API and refresh the OAuth2
+access and refresh tokens. Throw an invalid token
+exception if, during the call, any of the tokens
+is not valid.</long-description>
+          <tag name="throws" line="130" description="" type="\Redbooth\Exception\InvalidTokenException">
+            <type>\Redbooth\Exception\InvalidTokenException</type>
+          </tag>
+          <tag name="return" line="130" description="An object with information about the new tokens." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Redbooth\OAuth2</inherited_from>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="31" code="PPC:ERR-50015">Argument $method is missing from the Docblock of buildEndpointUrl</error>
+      <error line="46" code="PPC:ERR-50015">Argument $method is missing from the Docblock of get</error>
+      <error line="70" code="PPC:ERR-50015">Argument $method is missing from the Docblock of post</error>
+      <error line="94" code="PPC:ERR-50015">Argument $method is missing from the Docblock of postFile</error>
+    </parse_markers>
+    <source>eJzNV21v4kYQ/s6vmEpINhGB6votHGmIAhcqciBKPlS9E1rsMeydveuu1yS0yn/v7PolxoQclS6n+gNYu/PyzDwzs+v3v8abuNE9O2vAGSw2CHP0V1LqDQxmYwjlw3mIWwzhdrGYwYTtUHVI0ghfsVRvpIJrlQoJM/SVhPer2PxfqdxIx5PRJQl3G4JFmMTMe3bQaxRuS5crliAkqLbcw8IL6Xxl62c1a80LWZLAtRHHR43CT2A6IDjvGv80gB5r2DwGpuchCcdKavQ0+uXGlimI+CP6MErDEDwpyJIGGQBZ11nEHqMdRcilSLCTq3btf2kQmkZ+ngtBHwSZo+hqQK5THvrAyE8Uh6gJufBjycnj/XxSmK4Jiz0hWO0MSo8RTqa5WIMmwkzSCjUSattFQ17MKKVM+HZhzbcoIEKizK87oxwrFkGilbHZzIRsMeSvesM07GQKD4yQaGnT0inVFepUiUJ/8HqERfL4lsKAIBWe5lLAygQ8zOXvVejmMFpWPGPVPLkvTh6kj67TddrAlGI7t6k3PDm/NOkg/XapcfzJNVjMZ5SqkzRyUK2eFX46IHmGKpAqIpo/DBcE9q8UE13P94tCJq0sp8mw96ZUydUXKl0YlG8KY6pyKn9m2aAeMEVzpPDTVci9Z+rWqI+x1SQL1BCfbrWOgzT8NM9ivbiwOjlhx5hv7RFCPPn+LTIfVVKo0srADiH+t8WdbbsHmhSY7+acVYjXGyUfxsFCfkUxFlsWct81iCuS3S4EMqQxSLnwuTKp4gHkuSqlaMkqnl96VJTQ78MvP79rVfJgnaYqpFxkchQiW/pMsz+dwvCS9p3PvX2dV/NHCq3D4J7qYdamk7HZq/dThmol/d23K3s2/f2E0q5K/ZjaztTtMICmyS3cmB+SW6GFg/7bNkIsk7IT2hmEkxsi0/2PHWH4cr8kUixRmMpzM5/ft3GS38iBe2JLvVprp7fdyVV5T8cAM6dqwEOsF9QA6Ijne0TaNLf2CmpDR2RIrGQ2Ct00M0wnboK6PGtZTKd+bGwi3I3vhqB38YHbH1rH+75MBOYss97KY9heBPIEGIk931mgrxn8SFc3a9Dc4ep2aHzlJki+AzcYsDTUibHs0B0NtfP2PTciLLW+az/nol2Jol+AOujLgItA0r79X8oYhTsaT4bjj6Pp0jC9XPwxG1brPeIRLoj9UiewKOx7xXtVxc77Esxng+bKgU6Ftg44PVNSfbtcuOi95fiojKnvMTHwMSZKj88ME0/ilgHcUYgXF6Pp/O4oBNcZ0A0+1nTRc6j/iH0LoGvmnvPiwDI+6i7uZ5Pp4OZ/OsU+II2hLN8QKBl96wOk0JuTTjbWFG65TJOQxhXb0ifJEQOFovkqyNExUejkCA7GWSFoB9KgeKEutfYL3G7E1xttRhRGsd61yraFY5fGCWEsqqzej+ZG9ZM15L7ASat+tyoyfSh6fpkDJMbkwH4oVO9KgCFR/KIxdiCcs/fU+BcxTnVl</source>
+  </file>
+  <file path="Redbooth/Exception/InvalidTokenException.php" generated-path="Redbooth.Exception.InvalidTokenException.html" hash="04465e566c4278f3f872f459d876a16f" package="Default">
+    <docblock line="0">
+      <description>A Redbooth Exception.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="author" line="0" description="Bruno Pedro" link="mailto:bpedro@redbooth.com"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Redbooth\Exception" line="18" package="Redbooth">
+      <extends>\Exception</extends>
+      <name>InvalidTokenException</name>
+      <full_name>\Redbooth\Exception\InvalidTokenException</full_name>
+      <docblock line="18">
+        <description>An invalid token exception.</description>
+        <long-description>Exception thrown when any of the OAuth2
+tokens is considered invalid, e.g. expired
+access or refresh token.</long-description>
+        <tag name="package" line="18" description="Redbooth"/>
+      </docblock>
+    </class>
+    <source>eJxdj0FLQzEQhO/5FXN+yCt4tWgreOhJEY9e0mTbhLa7IUltRfzvblrNA08LuzPfzswfUkgws2EwGLDEK/m1SA14OjtKNQqPemi3hT3WIBmP+ciCF/JZMF+nNhf51zU6OdyreGbYHqgk66gT3zvxzvR/jMgfdh89quyIQf+/dhNqyHJinILKLH9CNroiPC811m2TXggFscAJl+hJU/3hb0DjdlR8irptausclQItlGmTqYSrv7fV7Du7neJfWrm9Vc/qynxr+ikfnSuxL5h6mi/zbX4ApVt0Vw==</source>
+  </file>
+  <file path="Redbooth/Exception/MethodNotFoundException.php" generated-path="Redbooth.Exception.MethodNotFoundException.html" hash="c4eca9e1437eea12dd80cf07be6fb1db" package="Default">
+    <docblock line="0">
+      <description>A Redbooth Exception.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="author" line="0" description="Bruno Pedro" link="mailto:bpedro@redbooth.com"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Redbooth\Exception" line="16" package="Redbooth">
+      <extends>\Exception</extends>
+      <name>MethodNotFoundException</name>
+      <full_name>\Redbooth\Exception\MethodNotFoundException</full_name>
+      <docblock line="16">
+        <description>A method not found exception.</description>
+        <long-description>Exception thrown when an API method is not found.</long-description>
+        <tag name="package" line="16" description="Redbooth"/>
+      </docblock>
+    </class>
+    <source>eJxdjsEKwjAQRO/5ijn3UD9AUSsoeFCKZy9psxrR7oYkpYL477ZFG/C0h9k3bxYrZx3ULMsUMhQ4kalEosX2WZOLN+G8D4ZsrdtoxWPjWxaUZLxgUbnhrv2Xymtplv3zTLFuKDhd09R4nhrnKvka6ksNWCIu0rIB/XsnDNF66RidJYZmFOX+h99Capj29va7vqYB4676oUPAYcSOEncDkQz0jMQmIG1VL/VWH5/XX/A=</source>
+  </file>
+  <file path="Redbooth/OAuth2.php" generated-path="Redbooth.OAuth2.html" hash="561b568ef00401760e580ddd162f932a" package="Default">
+    <docblock line="0">
+      <description>The Redbooth API low-level OAuth2 Utilities.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="author" line="0" description="Bruno Pedro" link="mailto:bpedro@redbooth.com"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Redbooth" line="14" package="Redbooth">
+      <extends/>
+      <name>OAuth2</name>
+      <full_name>\Redbooth\OAuth2</full_name>
+      <docblock line="14">
+        <description>Redbooth OAuth2 utilities</description>
+        <long-description></long-description>
+        <tag name="package" line="14" description="Redbooth"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="Redbooth" line="20" package="Redbooth">
+        <name>$baseUrl</name>
+        <full_name>\Redbooth\OAuth2::baseUrl</full_name>
+        <default>'https://redbooth.com'</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="20" description="protected"/>
+          <tag name="var" line="20" description="&lt;p&gt;API base URL.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Redbooth" line="26" package="Redbooth">
+        <name>$apiPath</name>
+        <full_name>\Redbooth\OAuth2::apiPath</full_name>
+        <default>'api/3'</default>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="26" description="protected"/>
+          <tag name="var" line="26" description="&lt;p&gt;path part of the API URL.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="32" package="Redbooth">
+        <name>$clientId</name>
+        <full_name>\Redbooth\OAuth2::clientId</full_name>
+        <default>null</default>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="32" description="private"/>
+          <tag name="var" line="32" description="&lt;p&gt;ID of the API client.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="38" package="Redbooth">
+        <name>$clientSecret</name>
+        <full_name>\Redbooth\OAuth2::clientSecret</full_name>
+        <default>null</default>
+        <docblock line="38">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="38" description="private"/>
+          <tag name="var" line="38" description="&lt;p&gt;secret of the API client.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="44" package="Redbooth">
+        <name>$accessToken</name>
+        <full_name>\Redbooth\OAuth2::accessToken</full_name>
+        <default>null</default>
+        <docblock line="44">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="44" description="private"/>
+          <tag name="var" line="44" description="&lt;p&gt;OAuth2 access token.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="50" package="Redbooth">
+        <name>$refreshToken</name>
+        <full_name>\Redbooth\OAuth2::refreshToken</full_name>
+        <default>null</default>
+        <docblock line="50">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="50" description="private"/>
+          <tag name="var" line="50" description="&lt;p&gt;OAuth2 refresh token.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="56" package="Redbooth">
+        <name>$redirectUrl</name>
+        <full_name>\Redbooth\OAuth2::redirectUrl</full_name>
+        <default>null</default>
+        <docblock line="56">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="56" description="private"/>
+          <tag name="var" line="56" description="&lt;p&gt;OAuth2 redirect URL.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="71" package="Redbooth">
+        <name>__construct</name>
+        <full_name>\Redbooth\OAuth2::__construct()</full_name>
+        <docblock line="71">
+          <description>The class constructor.</description>
+          <long-description>The constructor receives information needed to
+interact with the OAuth2 API and sets local class
+attributes.</long-description>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API client ID.&lt;/p&gt;" type="string" variable="$clientId">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API Client secret.&lt;/p&gt;" type="string" variable="$clientSecret">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API access token.&lt;/p&gt;" type="string" variable="$accessToken">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API refresh token.&lt;/p&gt;" type="string" variable="$refreshToken">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API redirect URL.&lt;/p&gt;" type="string" variable="$redirectUrl">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$clientId</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$clientSecret</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$accessToken</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$refreshToken</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$redirectUrl</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Redbooth" line="89" package="Redbooth">
+        <name>addAuthorizationHeader</name>
+        <full_name>\Redbooth\OAuth2::addAuthorizationHeader()</full_name>
+        <docblock line="89">
+          <description>Add an OAuth2 authorization header.</description>
+          <long-description>Changes the headers array by adding an OAuth2
+Bearer Authorization header.</long-description>
+          <tag name="param" line="89" description="&lt;p&gt;The original headers array. If empty a new array will be created.&lt;/p&gt;" type="array" variable="$headers">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="89" description="A headers array including the authorization header." type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$headers</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Redbooth" line="101" package="Redbooth">
+        <name>throwIfTokenInvalid</name>
+        <full_name>\Redbooth\OAuth2::throwIfTokenInvalid()</full_name>
+        <docblock line="101">
+          <description>Throw an exception if a refresh token is invalid.</description>
+          <long-description></long-description>
+          <tag name="param" line="101" description="&lt;p&gt;An object representation of a response.&lt;/p&gt;" type="object" variable="$res">
+            <type>object</type>
+          </tag>
+          <tag name="throws" line="101" description="" type="\Redbooth\Exception\InvalidTokenException">
+            <type>\Redbooth\Exception\InvalidTokenException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$res</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="130" package="Redbooth">
+        <name>refreshToken</name>
+        <full_name>\Redbooth\OAuth2::refreshToken()</full_name>
+        <docblock line="130">
+          <description>Refresh the OAuth2 access and refresh tokens.</description>
+          <long-description>Make a request to the API and refresh the OAuth2
+access and refresh tokens. Throw an invalid token
+exception if, during the call, any of the tokens
+is not valid.</long-description>
+          <tag name="throws" line="130" description="" type="\Redbooth\Exception\InvalidTokenException">
+            <type>\Redbooth\Exception\InvalidTokenException</type>
+          </tag>
+          <tag name="return" line="130" description="An object with information about the new tokens." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="71" code="PPC:ERR-50015">Argument $clientId is missing from the Docblock of __construct</error>
+      <error line="89" code="PPC:ERR-50015">Argument $headers is missing from the Docblock of addAuthorizationHeader</error>
+      <error line="101" code="PPC:ERR-50015">Argument $res is missing from the Docblock of throwIfTokenInvalid</error>
+    </parse_markers>
+    <source>eJytV9ty2zYQfddXoB1PKLmylKZ9siM5SppO1IknHteePlgeDUSuRNQUwQKgFafjf+/iwgtISqnT8kUSsWfPLvbsAnp9nsVZb3x83CPH5DoGcgXRinMVk9nlnCR8d5LAAyTk0yxX8Styo1jCFAM5QnsNeUPxPRfkrchTTi4hEpy8XmX6841wrkYh307ReNxL6RZkRsOK5qxXkJfEjiovqAomxN3TTQU1HsOESukgvb97BB/jTz86ujAEXM8EVxAqiMqFBypMujrLFZVAbq4+jtzq2HyWGHKkDW5EQiYkiJXK5Ol4XM8twCSeTZxRTDWjQhG+JspFcigImrFLjcEg8Ov4p4Os7IEqaHHOf6mThQmDVDX5DJIc2cV5hHRpniTP55IQClDP5Pvdgr6V0ynHWSl+D+keOmtyrS3+K5uAtQAZH6RzNv8TX8QEaqJLLCWdNbGa7WbTHm3zhDyVSuSh4qLw5xlVy8gdAnsASVi65mJLFeMpSQEiFKjiBYqlCgTFCHcM9aqq0LUKaBqhNpTE2RLSxIZQAKlSgq1yZcaLFwg2v6BbgoGwdFNT57Xv3L5HnY8OAp3MGuB3FmyFu89BXTgNfJfsmnBPCA18p5DaDqrStvB7hZGvEhaSdZ6GpmLLZVnUfrmXQ393hl6uQz/0oRfIwJDY4aufIxUzeTKtjZCS5KzbqOx7L4SWsd+19fhapo2O86LvMK73Sz01a/rU6p5ZFKGSy4FjzkD2xfZDDDSCViu9i2m6wc7R7WAtJKFC0EeyeiQ0inR1S48F6C1QAYLM/oV/pxPr8qhg0BJB5Ial2Gse7YjM1wS2mUJ2bOGdQ+5YkpAVdr0AHCVRJUOsRy5SZzVrpMDSMMlNCjq9Q9vRPNZKTeIWeGl+MLB+mcnEUvUHLbU5i9vAwwd3+qR0GxiQUYeGKh245ApX+6p+HQu+01WCzyFkJmy2xu3zOpcwPR4faMKiPTXiqz91m6LOJJmlxU8BGb5A8dtt49axzLBToSqD0iFIsiguQYv3RSiLuSU1qZVvv7btxt98bUDOQV8H1txlzNO8x47lEZDphPz88uWgZlAvhW0itHW/T6aKz2z1zjyA9vqdEWG/KuNutzvREsKtYCGKMLgbNIkKbOulzRI2Szybwrh7XT/BGITgYnK7CL6/O+8vdj+cD+z3xR/jPBjuBR4K8wDKhAOy02BAXrzoXChQtz+illHMTlVLI7Oga0/0YypqOvor0mgWQz9Pve5fT3s64qpQfuv2pc95ry9aZ/oFvQej8b9ykAqNypuihy09l7eEvQRVg7qtsgsFsN61QxLlohhYeBFJhgh7LK6r1l95n5Ek5Yp0t/Q3NmQ5UF33V3PAXJrq9yu64rkyYemi+nvZfb7XD7t+a15GVNFynHr1Duzpu2RRQCbT5jk+7LS116W2vbtF+BgXmFNwDeNdLnzMRlCkUY8ZGEDDR4vAHt1LLK4xz0UCqR5Z/fZZPyixtU4wU3lCFh/wj946T7CuRp6npxmXqt/5/2/M9Rx4NXZ96UV0Ml3xCKeb3vTmCnzOMBD5m+RFlao1PAgieY1J98tILtgWTk9//XR10WVc72aX6t7Z3j74zLTWkRZH31PvH6Q8rx4=</source>
+  </file>
+  <file path="Redbooth/Service.php" generated-path="Redbooth.Service.html" hash="80d2605bf74dbdaef598d90b9d93dcec" package="Default">
+    <docblock line="0">
+      <description>The Redbooth API Service Layer.</description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+      <tag name="author" line="0" description="Bruno Pedro" link="mailto:bpedro@redbooth.com"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="Redbooth" line="31" package="Redbooth">
+      <extends>\Redbooth\Base</extends>
+      <name>Service</name>
+      <full_name>\Redbooth\Service</full_name>
+      <docblock line="31">
+        <description>Redbooth service connector.</description>
+        <long-description>Some methods, specifically getters are implemented
+using the __call() magic method.</long-description>
+        <tag name="package" line="31" description="Redbooth"/>
+        <tag name="inherited_from" description="\Redbooth\Base" refers="\Redbooth\Base" link="/classes/Redbooth.Base.html"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="Redbooth" line="37" package="Redbooth">
+        <name>$listGetters</name>
+        <full_name>\Redbooth\Service::listGetters</full_name>
+        <default>array('activities', 'comments', 'conversations', 'memberships', 'notes', 'notifications', 'organizations', 'people', 'projects', 'subtasks', 'task_lists', 'tasks', 'users', 'files')</default>
+        <docblock line="37">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="37" description="private"/>
+          <tag name="var" line="37" description="&lt;p&gt;A list of possible getters.&lt;/p&gt;" type="array" variable="">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Redbooth" line="20" package="Redbooth">
+        <name>$lastResponse</name>
+        <full_name>\Redbooth\Base::lastResponse</full_name>
+        <default>null</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="20" description="protected"/>
+          <tag name="var" line="20" description="&lt;p&gt;Full content of last HTTP call response.&lt;/p&gt;" type="mixed" variable="">
+            <type>mixed</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Redbooth" line="20" package="Redbooth">
+        <name>$baseUrl</name>
+        <full_name>\Redbooth\OAuth2::baseUrl</full_name>
+        <default>'https://redbooth.com'</default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="20" description="protected"/>
+          <tag name="var" line="20" description="&lt;p&gt;API base URL.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Redbooth" line="26" package="Redbooth">
+        <name>$apiPath</name>
+        <full_name>\Redbooth\OAuth2::apiPath</full_name>
+        <default>'api/3'</default>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="26" description="protected"/>
+          <tag name="var" line="26" description="&lt;p&gt;path part of the API URL.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="32" package="Redbooth">
+        <name>$clientId</name>
+        <full_name>\Redbooth\OAuth2::clientId</full_name>
+        <default>null</default>
+        <docblock line="32">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="32" description="private"/>
+          <tag name="var" line="32" description="&lt;p&gt;ID of the API client.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="38" package="Redbooth">
+        <name>$clientSecret</name>
+        <full_name>\Redbooth\OAuth2::clientSecret</full_name>
+        <default>null</default>
+        <docblock line="38">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="38" description="private"/>
+          <tag name="var" line="38" description="&lt;p&gt;secret of the API client.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="44" package="Redbooth">
+        <name>$accessToken</name>
+        <full_name>\Redbooth\OAuth2::accessToken</full_name>
+        <default>null</default>
+        <docblock line="44">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="44" description="private"/>
+          <tag name="var" line="44" description="&lt;p&gt;OAuth2 access token.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="50" package="Redbooth">
+        <name>$refreshToken</name>
+        <full_name>\Redbooth\OAuth2::refreshToken</full_name>
+        <default>null</default>
+        <docblock line="50">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="50" description="private"/>
+          <tag name="var" line="50" description="&lt;p&gt;OAuth2 refresh token.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Redbooth" line="56" package="Redbooth">
+        <name>$redirectUrl</name>
+        <full_name>\Redbooth\OAuth2::redirectUrl</full_name>
+        <default>null</default>
+        <docblock line="56">
+          <description></description>
+          <long-description></long-description>
+          <tag name="access" line="56" description="private"/>
+          <tag name="var" line="56" description="&lt;p&gt;OAuth2 redirect URL.&lt;/p&gt;" type="\Redbooth\The" variable="">
+            <type>\Redbooth\The</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="80" package="Redbooth">
+        <name>__call</name>
+        <full_name>\Redbooth\Service::__call()</full_name>
+        <docblock line="80">
+          <description>Automatically respond to some getters.</description>
+          <long-description>Magic method used to overload methods specified on
+the $listGetters attribute.
+
+Available methods include:
+* `object getActivities()` Get a list of activities.
+* `object getComments()` Get a list of comments.
+* `object getConversations()` Get a list of conversations.
+* `object getMemberships()` Get a list of memberships.
+* `object getNotes()` Get a list of notes.
+* `object getNotifications()` Get a list of notifications.
+* `object getOrganizations()` Get a list of organizations.
+* `object getPeople()` Get a list of people.
+* `object getProjects()` Get a list of projects.
+* `object getSubtasks()` Get a list of subtasks.
+* `object getTaskLists()` Get a list of task lists.
+* `object getTasks()` Get a list of tasks.
+* `object getUsers()` Get a list of users.
+* `object getFiles()` Get a list of files.</long-description>
+          <tag name="param" line="80" description="&lt;p&gt;The name of the method being called.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="80" description="&lt;p&gt;A list of arguments passed to the method.&lt;/p&gt;" type="array" variable="$arguments">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="80" description="An object representing the response." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$arguments</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="113" package="Redbooth">
+        <name>getFile</name>
+        <full_name>\Redbooth\Service::getFile()</full_name>
+        <docblock line="113">
+          <description>Get information about a file.</description>
+          <long-description>Get information from a single file available
+to the user through the API.</long-description>
+          <tag name="param" line="113" description="&lt;p&gt;The ID of the file to get.&lt;/p&gt;" type="integer" variable="$id">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="113" description="An object representation of the file information." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$id</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="128" package="Redbooth">
+        <name>downloadFile</name>
+        <full_name>\Redbooth\Service::downloadFile()</full_name>
+        <docblock line="128">
+          <description>Download a single file.</description>
+          <long-description>Download a file given its ID and obtain it
+as specified by the filename parameter.</long-description>
+          <tag name="param" line="128" description="&lt;p&gt;The ID of the file to download.&lt;/p&gt;" type="integer" variable="$id">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="128" description="&lt;p&gt;A filename to obtain the file.&lt;/p&gt;" type="string" variable="$filename">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="128" description="The contents of the downloaded file." type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$id</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$filename</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="142" package="Redbooth">
+        <name>getUser</name>
+        <full_name>\Redbooth\Service::getUser()</full_name>
+        <docblock line="142">
+          <description>Get information about a particular user.</description>
+          <long-description>Get all the available information about the
+user identified by a given ID.</long-description>
+          <tag name="param" line="142" description="&lt;p&gt;The ID of the user to read.&lt;/p&gt;" type="integer" variable="$id">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="142" description="An object representation of the user." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$id</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="155" package="Redbooth">
+        <name>getMe</name>
+        <full_name>\Redbooth\Service::getMe()</full_name>
+        <docblock line="155">
+          <description>Get information about the authorized user.</description>
+          <long-description>Get all the available information about the
+user currently authorized, i.e. me.</long-description>
+          <tag name="return" line="155" description="An object representation of the user." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="172" package="Redbooth">
+        <name>createConversation</name>
+        <full_name>\Redbooth\Service::createConversation()</full_name>
+        <docblock line="172">
+          <description>Create a new conversation.</description>
+          <long-description>Create a new conversation inside a specific project
+with all the information passed by the parameters.</long-description>
+          <tag name="param" line="172" description="&lt;p&gt;The ID of the project where you want to create the conversation.&lt;/p&gt;" type="integer" variable="$projectId">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="172" description="&lt;p&gt;The name (title) of the conversation.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="172" description="&lt;p&gt;You can optionally set the conversation body.&lt;/p&gt;" type="string" variable="$body">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="172" description="&lt;p&gt;Whether or not the conversation is private. Defaults to false.&lt;/p&gt;" type="boolean" variable="$isPrivate">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="172" description="An object representation of the created conversation." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$projectId</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$body</name>
+          <default>''</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$isPrivate</name>
+          <default>false</default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="196" package="Redbooth">
+        <name>createTask</name>
+        <full_name>\Redbooth\Service::createTask()</full_name>
+        <docblock line="196">
+          <description>Create a new task.</description>
+          <long-description>Create a new task inside a specific project and a
+specific task list with all the information passed
+by the parameters.</long-description>
+          <tag name="param" line="196" description="&lt;p&gt;The ID of the project where you want to create the task.&lt;/p&gt;" type="integer" variable="$projectId">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="196" description="&lt;p&gt;The ID of the task list where you want to create the task.&lt;/p&gt;" type="integer" variable="$tasklistId">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="196" description="&lt;p&gt;The description of the task.&lt;/p&gt;" type="string" variable="$description">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="196" description="&lt;p&gt;Whether or not the task is private. Defaults to false.&lt;/p&gt;" type="boolean" variable="$isPrivate">
+            <type>boolean</type>
+          </tag>
+          <tag name="param" line="196" description="&lt;p&gt;The status of the task. Can be new, open, hold, resolved or rejected. Defaults to open.&lt;/p&gt;" type="string" variable="$status">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="196" description="An object representing the created task." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$projectId</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$tasklistId</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$description</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$isPrivate</name>
+          <default>false</default>
+          <type>boolean</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$status</name>
+          <default>'open'</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="220" package="Redbooth">
+        <name>createSubTask</name>
+        <full_name>\Redbooth\Service::createSubTask()</full_name>
+        <docblock line="220">
+          <description>Create a new subtask.</description>
+          <long-description>Create a new subtask inside a specific task
+with all the information passed by the parameters.</long-description>
+          <tag name="param" line="220" description="&lt;p&gt;The ID of the task where you want to create the subtask.&lt;/p&gt;" type="integer" variable="$taskId">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="220" description="&lt;p&gt;The name (title) of the subtask.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="220" description="&lt;p&gt;Whether or not the subtask is resolved. Defaults to false.&lt;/p&gt;" type="boolean" variable="$resolved">
+            <type>boolean</type>
+          </tag>
+          <tag name="param" line="220" description="&lt;p&gt;The ordinal position of the subtask on the list.&lt;/p&gt;" type="integer" variable="$position">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="220" description="An object representing the created subtask." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$taskId</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$resolved</name>
+          <default>false</default>
+          <type>boolean</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$position</name>
+          <default>0</default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="245" package="Redbooth">
+        <name>createTaskList</name>
+        <full_name>\Redbooth\Service::createTaskList()</full_name>
+        <docblock line="245">
+          <description>Create a new task list.</description>
+          <long-description>Create a new task list inside a specific project
+with all the information passed by the parameters.</long-description>
+          <tag name="param" line="245" description="&lt;p&gt;The ID of the project where you want to create the task list.&lt;/p&gt;" type="integer" variable="$projectId">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="245" description="&lt;p&gt;The name (title) of the task list.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="245" description="&lt;p&gt;Whether or not the task list is archived. Defaults to false.&lt;/p&gt;" type="boolean" variable="$archived">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="245" description="An object representation of the created task list." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$projectId</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$archived</name>
+          <default>false</default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="267" package="Redbooth">
+        <name>createNote</name>
+        <full_name>\Redbooth\Service::createNote()</full_name>
+        <docblock line="267">
+          <description>Create a new note.</description>
+          <long-description>Create a new note inside a specific project
+with all the information passed by the parameters.</long-description>
+          <tag name="param" line="267" description="&lt;p&gt;The ID of the project where you want to create the note.&lt;/p&gt;" type="integer" variable="$projectId">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="267" description="&lt;p&gt;The name (title) of the note.&lt;/p&gt;" type="string" variable="$name">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="267" description="&lt;p&gt;The content (body) of the note.&lt;/p&gt;" type="string" variable="$content">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="267" description="&lt;p&gt;Whether or not the note is private. Defaults to false.&lt;/p&gt;" type="boolean" variable="$isPrivate">
+            <type>boolean</type>
+          </tag>
+          <tag name="param" line="267" description="&lt;p&gt;Whether or not the note is shared. Defaults to false.&lt;/p&gt;" type="boolean" variable="$shared">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="267" description="An object representation of the created note." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$projectId</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$content</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$isPrivate</name>
+          <default>false</default>
+          <type>boolean</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$shared</name>
+          <default>true</default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="291" package="Redbooth">
+        <name>createComment</name>
+        <full_name>\Redbooth\Service::createComment()</full_name>
+        <docblock line="291">
+          <description>Create a new comment.</description>
+          <long-description>Create a new comment on a specific target
+with all the information passed by the parameters.</long-description>
+          <tag name="param" line="291" description="&lt;p&gt;The type of target where the comment will be created. Can be conversation or task.&lt;/p&gt;" type="string" variable="$targetType">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="291" description="&lt;p&gt;The ID of the target where the comment will be created.&lt;/p&gt;" type="integer" variable="$targetId">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="291" description="&lt;p&gt;The body of the comment.&lt;/p&gt;" type="string" variable="$body">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="291" description="&lt;p&gt;Optionally set the spent time on a task.&lt;/p&gt;" type="integer" variable="$minutes">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="291" description="&lt;p&gt;Optionally add the date when time tracking was turned on.&lt;/p&gt;" type="\Redbooth\date" variable="$timeTrackingOn">
+            <type>\Redbooth\date</type>
+          </tag>
+          <tag name="return" line="291" description="An object representation of the created comment." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$targetType</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$targetId</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$body</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$minutes</name>
+          <default>null</default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$timeTrackingOn</name>
+          <default>null</default>
+          <type>\Redbooth\date</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="318" package="Redbooth">
+        <name>getItemCount</name>
+        <full_name>\Redbooth\Service::getItemCount()</full_name>
+        <docblock line="318">
+          <description>Get total item count.</description>
+          <long-description>Get total item count for the object represented in the
+last HTTP call response, e.g. if the last call was getTasks()
+getItemCount() will return the total number of tasks.</long-description>
+          <tag name="return" line="318" description="The total item count." type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="Redbooth" line="31" package="Redbooth">
+        <name>buildEndpointUrl</name>
+        <full_name>\Redbooth\Base::buildEndpointUrl()</full_name>
+        <docblock line="31">
+          <description>Build a complete endpoint URL.</description>
+          <long-description>Build an endpoint URL by concatenating the base
+URL, the API path and the given method.</long-description>
+          <tag name="param" line="31" description="&lt;p&gt;The method that you want to call.&lt;/p&gt;" type="string" variable="$method">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="31" description="A complete endpoint URL." type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$method</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Redbooth\Base</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="46" package="Redbooth">
+        <name>get</name>
+        <full_name>\Redbooth\Base::get()</full_name>
+        <docblock line="46">
+          <description>Perform a GET request.</description>
+          <long-description>Perform a GET request to a given API method.</long-description>
+          <tag name="param" line="46" description="&lt;p&gt;The method that you want to call.&lt;/p&gt;" type="string" variable="$method">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="46" description="An object representation of the response." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$method</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Redbooth\Base</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="70" package="Redbooth">
+        <name>post</name>
+        <full_name>\Redbooth\Base::post()</full_name>
+        <docblock line="70">
+          <description>Perform a POST request.</description>
+          <long-description>Perform a POST request to a given API method.</long-description>
+          <tag name="param" line="70" description="&lt;p&gt;The method that you want to call.&lt;/p&gt;" type="string" variable="$method">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="70" description="&lt;p&gt;Data to be POSTed.&lt;/p&gt;" type="array" variable="$data">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="70" description="An object representation of the response." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$method</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <inherited_from>\Redbooth\Base</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="94" package="Redbooth">
+        <name>postFile</name>
+        <full_name>\Redbooth\Base::postFile()</full_name>
+        <docblock line="94">
+          <description>Upload a file.</description>
+          <long-description>A variation of the post() method that handles a file
+upload by setting the appropriate MIME type.</long-description>
+          <tag name="param" line="94" description="&lt;p&gt;The method that you want to call.&lt;/p&gt;" type="string" variable="$method">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="94" description="&lt;p&gt;Data to be POSTed.&lt;/p&gt;" type="array" variable="$data">
+            <type>array</type>
+          </tag>
+          <tag name="param" line="94" description="&lt;p&gt;The complete path of the file you want to upload.&lt;/p&gt;" type="string" variable="$filePath">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="94" description="&lt;p&gt;The name of the file you're uploading. Defaults to 'asset'.&lt;/p&gt;" type="string" variable="$fileName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="94" description="An object representation of the response." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$method</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$data</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$filePath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$fileName</name>
+          <default>'asset'</default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Redbooth\Base</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="120" package="Redbooth">
+        <name>getLastHeaders</name>
+        <full_name>\Redbooth\Base::getLastHeaders()</full_name>
+        <docblock line="120">
+          <description>Get headers from last HTTP call response.</description>
+          <long-description>Read the previously saved last HTTP call response
+and return any saved headers.</long-description>
+          <tag name="return" line="120" description="An array of HTTP headers (might be empty)." type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Redbooth\Base</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="71" package="Redbooth">
+        <name>__construct</name>
+        <full_name>\Redbooth\OAuth2::__construct()</full_name>
+        <docblock line="71">
+          <description>The class constructor.</description>
+          <long-description>The constructor receives information needed to
+interact with the OAuth2 API and sets local class
+attributes.</long-description>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API client ID.&lt;/p&gt;" type="string" variable="$clientId">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API Client secret.&lt;/p&gt;" type="string" variable="$clientSecret">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API access token.&lt;/p&gt;" type="string" variable="$accessToken">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API refresh token.&lt;/p&gt;" type="string" variable="$refreshToken">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="71" description="&lt;p&gt;The OAuth2 API redirect URL.&lt;/p&gt;" type="string" variable="$redirectUrl">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$clientId</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$clientSecret</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$accessToken</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$refreshToken</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$redirectUrl</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <inherited_from>\Redbooth\OAuth2</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Redbooth" line="89" package="Redbooth">
+        <name>addAuthorizationHeader</name>
+        <full_name>\Redbooth\OAuth2::addAuthorizationHeader()</full_name>
+        <docblock line="89">
+          <description>Add an OAuth2 authorization header.</description>
+          <long-description>Changes the headers array by adding an OAuth2
+Bearer Authorization header.</long-description>
+          <tag name="param" line="89" description="&lt;p&gt;The original headers array. If empty a new array will be created.&lt;/p&gt;" type="array" variable="$headers">
+            <type>array</type>
+          </tag>
+          <tag name="return" line="89" description="A headers array including the authorization header." type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$headers</name>
+          <default>array()</default>
+          <type>array</type>
+        </argument>
+        <inherited_from>\Redbooth\OAuth2</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Redbooth" line="101" package="Redbooth">
+        <name>throwIfTokenInvalid</name>
+        <full_name>\Redbooth\OAuth2::throwIfTokenInvalid()</full_name>
+        <docblock line="101">
+          <description>Throw an exception if a refresh token is invalid.</description>
+          <long-description></long-description>
+          <tag name="param" line="101" description="&lt;p&gt;An object representation of a response.&lt;/p&gt;" type="object" variable="$res">
+            <type>object</type>
+          </tag>
+          <tag name="throws" line="101" description="" type="\Redbooth\Exception\InvalidTokenException">
+            <type>\Redbooth\Exception\InvalidTokenException</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$res</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+        <inherited_from>\Redbooth\OAuth2</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Redbooth" line="130" package="Redbooth">
+        <name>refreshToken</name>
+        <full_name>\Redbooth\OAuth2::refreshToken()</full_name>
+        <docblock line="130">
+          <description>Refresh the OAuth2 access and refresh tokens.</description>
+          <long-description>Make a request to the API and refresh the OAuth2
+access and refresh tokens. Throw an invalid token
+exception if, during the call, any of the tokens
+is not valid.</long-description>
+          <tag name="throws" line="130" description="" type="\Redbooth\Exception\InvalidTokenException">
+            <type>\Redbooth\Exception\InvalidTokenException</type>
+          </tag>
+          <tag name="return" line="130" description="An object with information about the new tokens." type="object">
+            <type>object</type>
+          </tag>
+        </docblock>
+        <inherited_from>\Redbooth\OAuth2</inherited_from>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getActivities</name>
+        <docblock>
+          <description>Get a list of activities.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of activities." method_name="getActivities"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getComments</name>
+        <docblock>
+          <description>Get a list of comments.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of comments." method_name="getComments"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getConversations</name>
+        <docblock>
+          <description>Get a list of conversations.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of conversations." method_name="getConversations"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getMemberships</name>
+        <docblock>
+          <description>Get a list of memberships.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of memberships." method_name="getMemberships"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getNotes</name>
+        <docblock>
+          <description>Get a list of notes.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of notes." method_name="getNotes"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getNotifications</name>
+        <docblock>
+          <description>Get a list of notifications.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of notifications." method_name="getNotifications"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getOrganizations</name>
+        <docblock>
+          <description>Get a list of organizations.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of organizations." method_name="getOrganizations"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getPeople</name>
+        <docblock>
+          <description>Get a list of people.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of people." method_name="getPeople"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getProjects</name>
+        <docblock>
+          <description>Get a list of projects.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of projects." method_name="getProjects"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getSubtasks</name>
+        <docblock>
+          <description>Get a list of subtasks.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of subtasks." method_name="getSubtasks"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getTaskLists</name>
+        <docblock>
+          <description>Get a list of task lists.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of task lists." method_name="getTaskLists"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getTasks</name>
+        <docblock>
+          <description>Get a list of tasks.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of tasks." method_name="getTasks"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getUsers</name>
+        <docblock>
+          <description>Get a list of users.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of users." method_name="getUsers"/>
+        </docblock>
+      </method>
+      <method final="false" static="false" visibility="public" line="31">
+        <name>getFiles</name>
+        <docblock>
+          <description>Get a list of files.</description>
+          <long-description/>
+          <tag name="magic" line="31"/>
+          <tag name="return" line="31" type="">
+            <type/>
+          </tag>
+          <tag name="method" line="31" description="Get a list of files." method_name="getFiles"/>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="80" code="PPC:ERR-50015">Argument $name is missing from the Docblock of __call</error>
+      <error line="113" code="PPC:ERR-50015">Argument $id is missing from the Docblock of getFile</error>
+      <error line="128" code="PPC:ERR-50015">Argument $id is missing from the Docblock of downloadFile</error>
+      <error line="142" code="PPC:ERR-50015">Argument $id is missing from the Docblock of getUser</error>
+      <error line="172" code="PPC:ERR-50015">Argument $projectId is missing from the Docblock of createConversation</error>
+      <error line="196" code="PPC:ERR-50015">Argument $projectId is missing from the Docblock of createTask</error>
+      <error line="196" code="PPC:ERR-50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $description in createTask()</error>
+      <error line="196" code="PPC:ERR-50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $isPrivate in createTask()</error>
+      <error line="196" code="PPC:ERR-50015">Argument $status is missing from the Docblock of createTask</error>
+      <error line="220" code="PPC:ERR-50015">Argument $taskId is missing from the Docblock of createSubTask</error>
+      <error line="245" code="PPC:ERR-50015">Argument $projectId is missing from the Docblock of createTaskList</error>
+      <error line="267" code="PPC:ERR-50015">Argument $projectId is missing from the Docblock of createNote</error>
+      <error line="291" code="PPC:ERR-50015">Argument $targetType is missing from the Docblock of createComment</error>
+    </parse_markers>
+    <source>eJzVWm1v4zYS/p5fwQOC2l649n6+Ntum2W67wO5t0KQoir64tETbvMiij6KSdYv+987wTRRFyfYme0UDtGuR8wyHw5mHQ0qff7Hb7M7mz56dkWfkdsPIdyxfCqE25PL6Nblh8p5njLyheyZnIIJSX9JabYQkX8m6FOSa5VKQz5c7/PdLadGzTGxfgPD8rKRbVu1o1mj+7MyN58eq7DiZKEuWKeHHuhFbRrYMxsurKal2LOMrntGi2JM1U4rJilDJCN/uCrZlpWI5ouqKl2uiYDaLBQqPJ2RL1zyzmvxEzCMRy//CoKjwMlP8nivOKoB8wxShpOCVImJFqO+apbFXYosWdJGZ7ejFlfcwD6q4KFPgoLdHw1u2XYLMhu+6+G3T14P+j1CJ6ZbY2o/Qq5C2uAx7ezS8k2ta8t97NIiwt0fDNROw5B3oTjf3YaTAn90Bd7ajB3dTLxWt7rq4ynb04G6h7w2IdoGI0g9D0DSsD/E95FAXUWNrD+IVLxILv8JWg4CsvaPrJnF1PmcFrSpPDOy9YmVeka9oxc7+OCPwp3Mb/5ApsoyB9E7ye6qYb76nEtJW0j25bNZAVBVfFszl9cxKz/W/VgM5R/FvbOZfGCVjIwl/oyZJR9Om1SVguy3Iq7AjSJiwWedD1NCEedjRit6ww8Rmq8XGXdjmYipsw4aFDpe4tdWgFzts0Gs50s8TYN1odS5rJbZgpqFTCSwtypwoQSok3WgZHOhtwKMYXRogwJWFoLljakfU0CtKh0Q6bi0fVUryZa1YPMblPeUFxVhw+niZFXXO/u0knpHf0qT92xBrJ7ANacfIgLWTuBZpd8Ft1k5oaJF2jG+zdgJtSTvGOdZOI0LSTiBbrJ3QEJF2rCFm7YQGR9ox1LN2CuNJu4NqWDuBa0g7xgWsncAFpB0DW6zdA+2B9SAsaccIx9oJhCXtGOFYu5VHQOCSbkkFaQbl0DlWYrrE0z/QsI3LMLJkKIJMwPJZhDdMfU7lutYZEZB207aDXcGQQaO1USSZqmXp9p5L/0uyHfAOKHD1mmGhikXsXy8LYJ1VXWYYXa6q0zOaBpZNtPQfngDnc6Jgh3LpyB0Zma6VFFt06dfvKZaPb40nYAbMNCzMLDzkPIPhCth1SvZAfr7CB/h/xW4lLauVkFsmm60I/wK5V9BNlXlAzPSA4E1J7xgKejkgcG+IXsALa9CnL5QzYAzeXC/AqQXU2+PR/FeY3Xw0JSP4T4MmbhuwLsg2LLsjvBUKGS0hHGwseGGQGfNyYTZc53i14dWnLwJOn0wC79sxjHYo0rFQp+W+CZopWda8yPXg397eXpP/1UzuW3gc9l9su1MwaLPM5JNPSKf1p+e/dIbX3tJawV2jL0ZkRjZK7RZ63IXuiDR81sL/SVhRsUGlowjRerJxbx0Fq2FcB2YYBcFwyaHURooHHR5fv8/YDoP/ZxOnQOevRF3mvn0c6joz/493fOQMXq50iGEe0aWokUWQPWLyiGV1tlCCJyvYmBFBqNun/RZvsh/pS5terze6AY6SPdzE4ci2Bulznmtqev3SEZMeARSC007gEWNrqCKYwzCpWHIdgykxj3SX0ZRWcwyoWhaszERukHYVur5/KR5KXSO1fBi7JZDS1q/5PSsJB4IFz9ASy3dFObY4BA2rreXeT1zHmXYyU/rs/mHuz61B8abgNhU/1GUzKlaExkynqbOCFo5jAjkrvYXYkd2IMJ0Qml40J+xWbtpY9IhFhIbR3KmO+73+3qXuSzPwHFTbdQGnH0yRVMYB6Won+NRKKIJ+B9GZxnPcQN36Uxszr1+evOYmbwV4ip6yd7dyLpxYb55h2XNknulS6JQ8Sztf+1RfW/HfWf6k7s9qKcELcIRqBpgSPmMz2FE7a/ARvPkWKurDjtyyUa/PrmDF4XBN9U4Tnl1i83sFwU8VxCGSm72jc+W5gz5wtfH+Db1qK0dLXZ6x+qpZH75W/+s4im07edBFx17U5IGWCuM6M9YrQzqdSQ7Xy2PFVcEmbpRjFCxFvic/ggFYUgm9S+ujdsVURwdB4VjRUoiCAfacV9f2AuSHDcNqCk5beGTrquH+tmVGXrIVrQtgVpj7ihZVl4aPDEPjuDw56XRYGkR4Sh43C2aL0an10IWpT5s5Xhhr46A+z6mi/tLHXZ4seD4iFy+CeGjX1s3fCAc1snr4PjE0yojhr14xXi2sp42wtz+s1MGZWKibPNyJChIxunky0wowLncBelS+4vFyME/1sbU3P3VVQR3Q9/qz7qHEdcj/b/6Gk+5oxk40vaM6mNSpyl1O56zKJNe5rJWHz8EoH5bJZqWOy+C2WRUkbF1pi+zP0BhyZc50EA1TICJWTslGFJCHEGOiuMdrOgm/0e1w/G+NitIfcI53jBH6Yogp8OqkzRDNIjZ0ETg7RRhT7wegFDR89OQU4m9iPSaw85G8E8zOSIfTPZmFehHGRUba/D5AWPae+dFEZe/dBrnKyiToCps/Wi2BytNsMUgU0YxOKiB6sJ4ofGomeMJ7qfIZfARXNMwrKu4JTMicQ1lCfGPbPiLMKQ5D/BE8EM12iApu6qVhA7MoTfZ7jzTp7o2+IM8P5LrO3DBpH5+wziAj6p7CKza8vvJGxpdT2sCfRq579AsmnnsKL3MGs7N5X/QklURroYel/mk1f2d6J+VrL9pnLJXZhvdkbOA0/GLBCH6ECr1j5aFNF191JEtzP5u/uRp3dhhR93TEluVemD46LfCl2mBGoMA/LRnCSZ2UB0NAe5UXXuuRMR6iBtHH1cbGyafUxl5vtaEynZZOqZH4CPkYzncoFfF9bjINrRv7yl0zswuiZP23Zag10Ug6e5+wXtVztPWq/n0g+e2nGo/Oe/sFwIE7MC2DVVKrVpVr9uSJ77LMaL/d70ySKvyhXzNjs816cy9kbHvgMPbSx6Q/DbbujSApDpypUXuiRj5y0KErMlSpf/i7tZbjO7ZseVnDEpN33Ss1WAKkOo4vuHFJUnPK9YdEKHMraXYHdrwrQ100N68ktRzMrDT6lBUGNgV+gEjSX7c8/kqtNdfh2zQtOg4CYNosjL1NmzbuuSBlXRTTzlRN+8FyGdUuMLhcyewH7T8ca0xTZFvLjrtoi+tm94LXTqfzbteWz7bbVM/2IVk8hzrbHulTjVILt+wLV6G3sUfX6c1HaB9CTPhyQgkF5zSu2Baipu4SU0qGrDCx8ZgXBSOEnnk/59AFheJUv4XHN//+Q4wpYbP1zH0ioIV0PyZB88mLU4LrDWNf4dDjiSEBOzvNFtq6ssaPmzpfxsSJxG0h0Tft3vchgQVxjG8Yzc2Xg82rkTcwp29Ne/gOPQwXC8PvDlpxEvXDWY6u4TCNhmirjdMhNjtI2AbBDUzy7Bh0HJ/WQ2Nw0YQcxh/4yMBqe979fuDPs78A9cD4Ig==</source>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="Redbooth" full_name="Redbooth"/>
+  <package name="global" full_name="global"/>
+  <namespace name="Redbooth" full_name="Redbooth">
+    <namespace name="Exception" full_name="Redbooth\Exception"/>
+  </namespace>
+  <deprecated count="0"/>
+</project>

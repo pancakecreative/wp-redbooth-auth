@@ -1,0 +1,155 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "62bf9a52c01b0c13685ecced6cf6f931",
+    "content-hash": "48a5a822657775dd5afbe0ff18f71c2d",
+    "packages": [
+        {
+            "name": "mattketmo/camel",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MattKetmo/camel.git",
+                "reference": "ae66a1d13852109b10361a4b22e508006fe3c741"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MattKetmo/camel/zipball/ae66a1d13852109b10361a4b22e508006fe3c741",
+                "reference": "ae66a1d13852109b10361a4b22e508006fe3c741",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Camel": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthieu Moquet",
+                    "email": "matthieu@moquet.net"
+                }
+            ],
+            "description": "Tiny library to handle words case transformation",
+            "keywords": [
+                "camelcase",
+                "case",
+                "lowercase",
+                "snakecase",
+                "transform"
+            ],
+            "time": "2014-09-14 10:29:38"
+        },
+        {
+            "name": "nategood/httpful",
+            "version": "0.2.20",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nategood/httpful.git",
+                "reference": "c1cd4d46a4b281229032cf39d4dd852f9887c0f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nategood/httpful/zipball/c1cd4d46a4b281229032cf39d4dd852f9887c0f6",
+                "reference": "c1cd4d46a4b281229032cf39d4dd852f9887c0f6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Httpful": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nate Good",
+                    "email": "me@nategood.com",
+                    "homepage": "http://nategood.com"
+                }
+            ],
+            "description": "A Readable, Chainable, REST friendly, PHP HTTP Client",
+            "homepage": "http://github.com/nategood/httpful",
+            "keywords": [
+                "api",
+                "curl",
+                "http",
+                "requests",
+                "rest",
+                "restful"
+            ],
+            "time": "2015-10-26 16:11:30"
+        },
+        {
+            "name": "redbooth/redbooth",
+            "version": "0.0.23",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/teambox/redbooth-php.git",
+                "reference": "a4148ea2b32746220f56a74ead63e05c61e74934"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teambox/redbooth-php/zipball/a4148ea2b32746220f56a74ead63e05c61e74934",
+                "reference": "a4148ea2b32746220f56a74ead63e05c61e74934",
+                "shasum": ""
+            },
+            "require": {
+                "mattketmo/camel": "1.0.0",
+                "nategood/httpful": "*"
+            },
+            "require-dev": {
+                "evert/phpdoc-md": "~0.0.7",
+                "fzaninotto/faker": "*",
+                "phpdocumentor/phpdocumentor": "2.*",
+                "phpunit/phpunit": "~4.0",
+                "phpunit/phpunit-skeleton-generator": "*",
+                "satooshi/php-coveralls": "dev-master",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Redbooth": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Official Redbooth PHP client",
+            "keywords": [
+                "Tasks",
+                "api",
+                "conversations",
+                "redbooth"
+            ],
+            "time": "2015-01-16 10:56:18"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

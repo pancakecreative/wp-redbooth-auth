@@ -1,0 +1,17 @@
+{
+    "name": "mattketmo/camel",
+    "description": "Tiny library to handle words case transformation",
+    "license": "MIT",
+    "keywords": ["case", "transform", "camelcase", "snakecase", "lowercase"],
+    "authors": [
+        {
+            "name": "Matthieu Moquet",
+            "email": "matthieu@moquet.net"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Camel": "src/"
+        }
+    }
+}
