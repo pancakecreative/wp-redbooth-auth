@@ -7,9 +7,12 @@ Version: 1.0
 Author: Pancake Creative
 */
 
-define('REDBOOTH_CLIENT_ID', 'REDBOOTH_CLIENT_ID');
-define('REDBOOTH_CLIENT_SECRET', 'REDBOOTH_CLIENT_SECRET');
-define('REDBOOTH_REDIRECT_URL', 'REDBOOTH_REDIRECT_URL');
+// Register app here https://redbooth.com/oauth2/applications/new
+
+define('REDBOOTH_CLIENT_ID', '');
+define('REDBOOTH_CLIENT_SECRET', '');
+define('REDBOOTH_REDIRECT_URL', 'https://pancakecreative.com/redbooth');
+define('PANCAKE_ALFRED_SECRET', '');
 
 require 'vendor/autoload.php';
 
@@ -26,12 +29,32 @@ class VMPancakeRedbooth
     static private $_instance = null;
 
     private function __construct() {
-        add_action( 'admin_menu', array(&$this, 'admin_menu') );
+        add_action('admin_menu', array(&$this, 'admin_menu') );
 
 		add_action('init', function() {
 			$this->set_user_id(get_current_user_id());
 
-			if (preg_match('/\/redbooth/', $_SERVER['REQUEST_URI']) && isset($_GET['code'])) {
+			if (preg_match('/\/redbooth\/auth/i', $_SERVER['REQUEST_URI'])) {
+
+			if ( $_GET["secret"] != PANCAKE_ALFRED_SECRET ) {
+					echo 'Sorry, you don\'t belong here.';
+					die();
+				} else {
+					if (!$this->get_access_token()) {
+						header('Location: '.$this->get_auth_url());
+					} else {
+//						$tokens = $this->get_tokens_json();
+						$tokens = $this->get_tokens_ruby();
+						echo $tokens;
+
+//						$tokens = json_decode($tokens, TRUE);
+//						echo $tokens['access_token'];
+					}
+					die();
+				}
+			}
+
+			if (preg_match('/\/redbooth/i', $_SERVER['REQUEST_URI']) && isset($_GET['code'])) {
 				$access_token_info = $this->request_access_token($_GET['code']);
 				if ($access_token_info) {
 					set_transient('REDBOOTH_ACCESS_TOKEN_'.$this->get_user_id(), $access_token_info['access_token'], 3600);
@@ -60,6 +83,25 @@ class VMPancakeRedbooth
 		});
 	}
 
+	function get_tokens_json() {
+		return json_encode(array(
+			'client_id' => REDBOOTH_CLIENT_ID,      // update with your client id
+			'client_secret' => REDBOOTH_CLIENT_SECRET,  // update with your client secret
+			'access_token' => $this->get_access_token(),   // update with your user's access token
+			'refresh_token' => $this->get_refresh_token(),  // update with your user's refresh token
+			'redirect_url' => REDBOOTH_REDIRECT_URL
+		));
+	}
+
+	function get_tokens_ruby() {
+		return
+		"module AuthVars [" .
+			"Client_id = '". REDBOOTH_CLIENT_ID ."'," .
+			"Client_secret = '". REDBOOTH_CLIENT_SECRET ."'," .
+			"Token = '". $this->get_access_token() ."'," .
+			"Refresh_token = '". $this->get_refresh_token() ."'" .
+		"] end";
+	}
     static public function this()
     {
         if ( !self::$_instance ) {
@@ -75,7 +117,8 @@ class VMPancakeRedbooth
     }
 
 	public function get_user_id() {
-		return $this->user_id;
+//		return $this->user_id;
+		return 3;
 	}
 
 	public function set_user_id($user_id) {
@@ -167,31 +210,20 @@ class VMPancakeRedbooth
 		if ($this->get_access_token()) {
 			try {
 				$res = $this->redbooth()->getMe();
-				echo 'My name is ' . $res->first_name . ' ' . $res->last_name . "\n";
+				echo 'Welcome ' . $res->first_name . ' ' . $res->last_name . "\n";
 			} catch (\Redbooth\Exception\InvalidTokenException $e) {
-				$this->refresh_tokens();
 			}
+		} else {
+			?>
+			<form name="form1" method="post" action="">
+				<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y">
+
+				<p class="submit">
+					<a class="button-primary" href="<?php echo $this->get_auth_url(); ?>"><?php _e('Authorize'); ?></a>
+				</p>
+			</form>
+		<?php
 		}
-        ?>
-
-        <form name="form1" method="post" action=""method="post" enctype="multipart/form-data">
-            <input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y">
-
-<!--            <table id="table_keys" class="wp-list-table widefat striped">
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table> -->
-
-            <p class="submit">
-				<a class="button-primary" href="<?php echo $this->get_auth_url(); ?>"><?php _e('Authorize'); ?></a>
-      <!--          <input type="submit" name="Save settings" class="button-primary" value="<?php esc_attr_e('Save settings') ?>" /> -->
-            </p>
-        </form>
-    <?php
     }
 }
 
